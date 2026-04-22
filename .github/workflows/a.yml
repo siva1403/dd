@@ -3,11 +3,12 @@ name: Local Runner Test
 
 on:
   push:
-
 jobs:
-  test:
+  
+jobs:
+    codeql-scan:
+    name: Codeql Scan
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
