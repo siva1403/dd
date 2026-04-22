@@ -4,9 +4,7 @@ name: Local Runner Test
 on:
   push:
 jobs:
-  
-jobs:
-    codeql-scan:
+  codeql-scan:
     name: Codeql Scan
     runs-on: ubuntu-latest
     steps:
