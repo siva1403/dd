@@ -11,7 +11,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run script
+      - name: Build Docker image
+        run: docker build -t webhook-app .
+
+      - name: Stop old container (if exists)
+        run: docker rm -f webhook-container || true
+
+      - name: Run container
         run: |
-          echo "Hello from self-hosted runner"
-          python app.py
+          docker run -d -p 5000:5000 \
+          --name webhook-container \
+          -e GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} \
+          webhook-app
