@@ -5,7 +5,7 @@ on:
   push:
 jobs:
   codeql-scan:
-    name: Codeql Scan
+    name: Codeql
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
