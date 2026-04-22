@@ -1,1 +1,17 @@
-aa
+# .github/workflows/test.yml
+name: Local Runner Test
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run script
+        run: |
+          echo "Hello from self-hosted runner"
+          python app.py
