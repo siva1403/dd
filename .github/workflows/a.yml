@@ -1,8 +1,8 @@
 # .github/workflows/test.yml
 name: Local Runner Test
 
-on:
-  push:
+#on:
+ # push:
 jobs:
  # codeql-scan:
   #  name: Codeql
