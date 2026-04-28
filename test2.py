@@ -13,7 +13,7 @@ SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 EMAIL_USER = os.getenv("EMAIL_USER")       # your email
 EMAIL_PASS = os.getenv("EMAIL_PASS")       # app password
-EMAIL_TO = "recipient@example.com"
+EMAIL_TO = "recipient@eple.com"
 
 
 def send_email(subject, body):
