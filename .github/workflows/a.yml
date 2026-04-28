@@ -3,7 +3,7 @@ name: Local Runner Test
 
 #on:
  # push:
-jobs:
+# jobs:
  # codeql-scan:
   #  name: Codeql
     runs-on: ubuntu-latest
