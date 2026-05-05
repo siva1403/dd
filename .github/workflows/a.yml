@@ -23,7 +23,7 @@ jobs:
         
       - name: Run Python script
         env:
-         GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+         HUB_TOKEN: ${{ secrets.HUB_TOKEN }}
          EMAIL_USER: ${{ secrets.EMAIL_USER }}
          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
          EMAIL_TO: ${{ secrets.EMAIL_TO }}
