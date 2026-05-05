@@ -1,24 +1,30 @@
-# .github/workflows/test.yml
-name: Local Runner Test
+name: PR Security Monitor
 
-#on:
- # push:
-# jobs:
- # codeql-scan:
-  #  name: Codeql
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  monitor:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
-      - name: Build Docker image
-        run: docker build -t webhook-app .
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
 
-      - name: Stop old container (if exists)
-        run: docker rm -f webhook-container || true
+      - name: Install dependencies
+        run: pip install requests
 
-      - name: Run container
-        run: |
-          docker run -d -p 5000:5000 \
-          --name webhook-container \
-          -e TOLEN=${{ secrets.TOLEN }} \
-          webhook-app
+      - name: Run monitor script
+        env:
+          GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+          EMAIL_USER: ${{ secrets.EMAIL_USER }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python monitor.py
