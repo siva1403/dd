@@ -5,7 +5,7 @@ from zoneinfo import ZoneInfo
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-GITHUB_TOKEN = os.environ["HUB_TOKEN"]
+GITHUB_TOKEN = os.environ["TOLEN"]
 EMAIL_USER = os.environ["EMAIL_USER"]
 EMAIL_PASS = os.environ["EMAIL_PASS"]
 EMAIL_TO = os.environ["EMAIL_TO"]
