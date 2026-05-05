@@ -5,13 +5,13 @@ from zoneinfo import ZoneInfo
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-TOLEN = os.environ["TOLEN"]
+HUB_TOKEN = os.environ["HUB_TOKEN"]
 EMAIL_USER = os.environ["EMAIL_USER"]
 EMAIL_PASS = os.environ["EMAIL_PASS"]
 EMAIL_TO = os.environ["EMAIL_TO"]
-CHECK_INTERVAL = 120
+CHECK_INTERVAL = 12
 HEADERS = {
-    "Authorization": f"Bearer {TOLEN}",
+    "Authorization": f"Bearer {HUB_TOKEN}",
     "Accept": "application/vnd.github+json"
 }
 REQUIRED_CHECKS = [
