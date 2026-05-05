@@ -22,11 +22,9 @@ jobs:
         run: pip install requests
         
       - name: Run Python script
-        run: python monitor.py
-       
-    #    env:
-     #     GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
-      #    EMAIL_USER: ${{ secrets.EMAIL_USER }}
-       #   EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
-        #  EMAIL_TO: ${{ secrets.EMAIL_TO }}
-      #  run: python monitor.py
+        env:
+         GITHUB_TOKEN: ${{ secrets.HUB_TOKEN }}
+         EMAIL_USER: ${{ secrets.EMAIL_USER }}
+         EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+         EMAIL_TO: ${{ secrets.EMAIL_TO }}
+        run: python python monitor.py
